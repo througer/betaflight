@@ -417,6 +417,8 @@ void gpsInitNmea(void)
                if (!atgmRestartDone) {
                    atgmRestartDone = true;
                    serialPrint(gpsPort, "$PCAS02,100*1E\r\n");  // 10Hz refresh rate
+                   serialPrint(gpsPort, "$PGKC101,100*02<CR><LF>");  // 10Hz refresh rate E108-GN02D
+                   $PGKC101,100*02<CR><LF>
                    serialPrint(gpsPort, "$PCAS10,0*1C\r\n");    // hot restart 
                }
                gpsData.state_position++;
